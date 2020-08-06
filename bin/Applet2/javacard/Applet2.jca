@@ -1,0 +1,582 @@
+// converted by version 1.3
+// on Mon Jul 27 07:49:39 ICT 2020
+
+.package Applet2 {
+	.aid 0x11:0x22:0x33:0x44:0x55;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.2;		//javacard/framework
+	}
+
+	.applet {
+		0x11:0x22:0x33:0x44:0x55:0x0 Applet2;
+		0x11:0x22:0x33:0x44:0x55:0x2:0x1 Applet3;
+	}
+
+	.constantPool {
+		// 0
+		staticMethodRef Applet2/<init>([BSB)V;
+		// 1
+		classRef Applet2;
+		// 2
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 3
+		virtualMethodRef 0.3.1()V;		// javacard/framework/Applet.register()V
+		// 4
+		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 5
+		staticFieldRef byte[] Applet2/sinhVien;
+		// 6
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 7
+		staticFieldRef byte Applet2/soMonThi;
+		// 8
+		staticFieldRef byte[] Applet2/diemThi;
+		// 9
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 10
+		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 11
+		virtualMethodRef 0.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 12
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 13
+		staticMethodRef 0.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		// 14
+		virtualMethodRef 0.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		// 15
+		virtualMethodRef 0.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		// 16
+		virtualMethodRef 0.10.5([BSS)V;		// javacard/framework/APDU.sendBytesLong([BSS)V
+		// 17
+		classRef Applet3;
+		// 18
+		staticMethodRef Applet3/<init>()V;
+		// 19
+		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 20
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+	}
+
+	.class public Applet2 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			static final byte INS_NHAP = 0;		// B
+			static final byte INS_IN = 1;		// B
+			static final byte INS_SUA = 2;		// B
+			static final byte INS_XOA = 3;		// B
+			static final byte INS_ARRAY = 4;		// B
+			static final byte SV_ID_LENGTH = 4;		// B
+			private static byte[] diemThi;		// [B
+			private static byte[] sinhVien;		// [B
+			private static byte soMonThi;		// B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 1;		// Applet2/Applet2
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 0;		// Applet2/Applet2.<init>([BSB)V
+					pop;
+					return;
+		}
+
+		.method private <init>([BSB)V {
+			.stack 5;
+			.locals 3;
+
+				L0:	aload_0;
+					invokespecial 2;		// javacard/framework/Applet.<init>()V
+					aload_1;
+					sload_2;
+					baload;
+					sstore 4;
+				L1:	sload 4;
+					ifne L3;
+				L2:	aload_0;
+					invokevirtual 3;		// javacard/framework/Applet.register()V
+					goto L8;
+				L3:	aload_0;
+					aload_1;
+					sload_2;
+					sconst_1;
+					sadd;
+					sload 4;
+					invokevirtual 4;		// javacard/framework/Applet.register([BSB)V
+					sload_2;
+					sload 4;
+					sadd;
+					sconst_1;
+					sadd;
+					sstore_2;
+					aload_1;
+					sload_2;
+					baload;
+					sstore 5;
+				L4:	sload_2;
+					sload 5;
+					sadd;
+					sconst_1;
+					sadd;
+					sstore_2;
+					aload_1;
+					sload_2;
+					baload;
+					sstore 6;
+				L5:	sinc 2 1;
+					sload 6;
+					ifne L7;
+				L6:	sconst_4;
+					newarray 11;
+					putstatic_a 5;		// reference Applet2/Applet2.sinhVien
+					aload_1;
+					sload_2;
+					getstatic_a 5;		// reference Applet2/Applet2.sinhVien
+					sconst_0;
+					sconst_4;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					sinc 2 4;
+					aload_1;
+					sload_2;
+					baload;
+					putstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					goto L8;
+				L7:	sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					bspush 83;
+					bastore;
+					dup;
+					sconst_1;
+					bspush 86;
+					bastore;
+					dup;
+					sconst_2;
+					bspush 48;
+					bastore;
+					dup;
+					sconst_3;
+					bspush 49;
+					bastore;
+					putstatic_a 5;		// reference Applet2/Applet2.sinhVien
+					sconst_0;
+					putstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					bspush 18;
+					newarray 11;
+					putstatic_a 8;		// reference Applet2/Applet2.diemThi
+				L8:	return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 5;
+			.locals 11;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 9;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 10;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 11;		// javacard/framework/APDU.setIncomingAndReceive()S
+					pop;
+					aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L4:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L5:	aload_2;
+					sconst_1;
+					baload;
+					stableswitch L57 0 4 L6 L15 L16 L25 L36;
+				L6:	getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					bspush 9;
+					if_scmpne L8;
+				L7:	sspush 24832;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L58;
+				L8:	sconst_0;
+					sstore 5;
+				L9:	sload 5;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					if_scmpge L13;
+				L10:	sload_3;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 5;
+					baload;
+					if_scmpne L12;
+				L11:	sspush 27270;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto L13;
+				L12:	sinc 5 2;
+					goto L9;
+				L13:	sconst_2;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					astore 5;
+				L14:	aload 5;
+					sconst_0;
+					sload_3;
+					bastore;
+					aload 5;
+					sconst_1;
+					sload 4;
+					bastore;
+					aload 5;
+					sconst_0;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					sconst_2;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_1;
+					sadd;
+					s2b;
+					putstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					goto_w L58;
+				L15:	aload_1;
+					invokevirtual 14;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					invokevirtual 15;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sconst_0;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					invokevirtual 16;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					goto_w L58;
+				L16:	sconst_0;
+					sstore 6;
+				L17:	sconst_0;
+					sstore 7;
+				L18:	sload 7;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					if_scmpge L23;
+				L19:	sload_3;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 7;
+					baload;
+					if_scmpne L22;
+				L20:	sconst_2;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					astore 8;
+				L21:	aload 8;
+					sconst_0;
+					sload_3;
+					bastore;
+					aload 8;
+					sconst_1;
+					sload 4;
+					bastore;
+					aload 8;
+					sconst_0;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 7;
+					sconst_2;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					sconst_1;
+					sstore 6;
+					goto L23;
+				L22:	sinc 7 2;
+					goto L18;
+				L23:	sload 6;
+					ifne_w L58;
+				L24:	sspush 27270;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L58;
+				L25:	sconst_0;
+					sstore 7;
+				L26:	sconst_0;
+					sstore 8;
+				L27:	sload 8;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					if_scmpge L34;
+				L28:	sload_3;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 8;
+					baload;
+					if_scmpne L33;
+				L29:	sload 8;
+					sstore 9;
+				L30:	sload 9;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					sconst_2;
+					ssub;
+					if_scmpge L32;
+				L31:	getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 9;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 9;
+					sconst_2;
+					sadd;
+					baload;
+					bastore;
+					sinc 9 1;
+					goto L30;
+				L32:	getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					sconst_2;
+					ssub;
+					sconst_0;
+					bastore;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					sconst_1;
+					ssub;
+					sconst_0;
+					bastore;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_1;
+					ssub;
+					s2b;
+					putstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_1;
+					sstore 7;
+					goto L34;
+				L33:	sinc 8 2;
+					goto L27;
+				L34:	sload 7;
+					ifne_w L58;
+				L35:	sspush 27270;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L58;
+				L36:	sconst_1;
+					sstore 8;
+				L37:	bspush 18;
+					sconst_2;
+					invokestatic 13;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					astore 9;
+				L38:	aload_2;
+					sconst_4;
+					baload;
+					sstore 10;
+				L39:	aload_2;
+					sconst_5;
+					aload 9;
+					sconst_0;
+					sload 10;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					sload 10;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					sadd;
+					bspush 18;
+					if_scmpgt L41;
+				L40:	sload 10;
+					sconst_2;
+					srem;
+					ifeq L42;
+				L41:	sspush 27012;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L58;
+				L42:	sconst_0;
+					sstore 11;
+				L43:	sload 11;
+					sload 10;
+					sconst_2;
+					ssub;
+					if_scmpge L55;
+				L44:	sload 11;
+					sconst_2;
+					sadd;
+					sstore 12;
+				L45:	sload 12;
+					sload 10;
+					if_scmpge L49;
+				L46:	aload 9;
+					sload 11;
+					baload;
+					aload 9;
+					sload 12;
+					baload;
+					if_scmpne L48;
+				L47:	sspush 27012;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					sconst_0;
+					sstore 8;
+					goto L49;
+				L48:	sinc 12 2;
+					goto L45;
+				L49:	sconst_0;
+					sstore 12;
+				L50:	sload 12;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					if_scmpge L54;
+				L51:	aload 9;
+					sload 11;
+					baload;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sload 12;
+					baload;
+					if_scmpne L53;
+				L52:	sspush 27012;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					sconst_0;
+					sstore 8;
+					goto L54;
+				L53:	sinc 12 2;
+					goto L50;
+				L54:	sinc 11 2;
+					goto L43;
+				L55:	sload 8;
+					ifeq L58;
+				L56:	aload_2;
+					sconst_5;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					sload 10;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sload 10;
+					sconst_2;
+					sdiv;
+					sadd;
+					s2b;
+					putstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					aload_1;
+					invokevirtual 14;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					invokevirtual 15;		// javacard/framework/APDU.setOutgoingLength(S)V
+					aload_1;
+					getstatic_a 8;		// reference Applet2/Applet2.diemThi
+					sconst_0;
+					getstatic_b 7;		// byte Applet2/Applet2.soMonThi
+					sconst_2;
+					smul;
+					invokevirtual 16;		// javacard/framework/APDU.sendBytesLong([BSS)V
+					goto L58;
+				L57:	sspush 27904;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+				L58:	return;
+		}
+
+	}
+
+	.class public Applet3 1 extends 0.3 {		// extends javacard/framework/Applet
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public <init>()V 0 {
+			.stack 1;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 2;		// javacard/framework/Applet.<init>()V
+					return;
+		}
+
+		.method public static install([BSB)V 1 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 17;		// Applet2/Applet3
+					dup;
+					invokespecial 18;		// Applet2/Applet3.<init>()V
+					aload_0;
+					sload_1;
+					sconst_1;
+					sadd;
+					aload_0;
+					sload_1;
+					baload;
+					invokevirtual 19;		// javacard/framework/Applet.register([BSB)V
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 1;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 20;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 10;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+				L3:	aload_2;
+					sconst_1;
+					baload;
+					slookupswitch L5 1 0 L4;
+				L4:	goto L6;
+				L5:	sspush 27904;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	return;
+		}
+
+	}
+
+}
